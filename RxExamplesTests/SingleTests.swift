@@ -65,6 +65,10 @@ class SingleTests: QuickSpec {
 
                 expect(isDisposed).to(beTrue())
             })
+
+            it("Observable을 asSingle로 바꿔서 구독하면 dispose된다.", closure: {
+                
+            })
         }
 
     }
