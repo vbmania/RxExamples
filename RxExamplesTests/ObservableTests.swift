@@ -11,6 +11,7 @@ import Quick
 import Nimble
 
 import RxSwift
+import RxTest
 
 class ObservableTests: QuickSpec {
 
@@ -138,6 +139,46 @@ class ObservableTests: QuickSpec {
 
                 disposable2.dispose()
             })
+        }
+
+        describe("Observable의 Operator에서") {
+            var scheduler: TestScheduler!
+            var observer: TestableObserver<Int>!
+            var emitter: PublishSubject<Int>!
+            var disposeBag: DisposeBag!
+            beforeEach {
+                disposeBag = DisposeBag()
+                scheduler = TestScheduler(initialClock: 0)
+                observer = scheduler.createObserver(Int.self)
+                emitter = PublishSubject()
+            }
+            context("Filtering 중") {
+                context("Distinct 는") {
+                    it("true를 반환할 경우 스트림을 전달하지 않고, false를 반환하는 경우 스트림을 전달한다.") {
+                        // 짝수를 전달하지 않는다.
+                        emitter.asObservable().distinctUntilChanged({ (left, right) -> Bool in
+                            return right % 2 == 0
+                        }).subscribe(observer).disposed(by: disposeBag)
+
+                        scheduler.scheduleAt(100, action: {
+                            emitter.onNext(1)
+                        })
+                        scheduler.scheduleAt(200, action: {
+                            emitter.onNext(2)
+                        })
+                        scheduler.scheduleAt(300, action: {
+                            emitter.onNext(3)
+                        })
+                        scheduler.scheduleAt(400, action: {
+                            emitter.onNext(4)
+                        })
+
+                        scheduler.start()
+
+                        XCTAssertEqual(observer.events, [next(100, 1), next(300, 3)])
+                    }
+                }
+            }
         }
     }
 }
