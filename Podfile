@@ -16,6 +16,7 @@ target 'RxExamples' do
     # Pods for testing
     pod 'Quick'
     pod 'Nimble'
+    pod 'RxTest'
     
   end
 
