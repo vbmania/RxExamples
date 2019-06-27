@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1536B971A0890399D147B6CB /* Pods_RxExamples.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67EDD62BC014189CF7198CA8 /* Pods_RxExamples.framework */; };
 		25F06BE1D6D8CE90F913608F /* Pods_RxExamplesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1CF735E81611DBBC1C10ADE /* Pods_RxExamplesTests.framework */; };
+		4903260822C4724D00AC5E24 /* RelayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4903260722C4724D00AC5E24 /* RelayTests.swift */; };
 		4918EB1A21C739E600EDB763 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4918EB1921C739E600EDB763 /* AppDelegate.swift */; };
 		4918EB1C21C739E600EDB763 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4918EB1B21C739E600EDB763 /* ViewController.swift */; };
 		4918EB1F21C739E600EDB763 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4918EB1D21C739E600EDB763 /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 		023D311A05FCF2BC542A741D /* Pods-RxExamples.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxExamples.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxExamples/Pods-RxExamples.release.xcconfig"; sourceTree = "<group>"; };
 		2C2475B8188C519C310CEC25 /* Pods-RxExamplesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxExamplesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RxExamplesTests/Pods-RxExamplesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		44884538B09804A964AED5FF /* Pods-RxExamples.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxExamples.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RxExamples/Pods-RxExamples.debug.xcconfig"; sourceTree = "<group>"; };
+		4903260722C4724D00AC5E24 /* RelayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayTests.swift; sourceTree = "<group>"; };
 		4918EB1621C739E600EDB763 /* RxExamples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxExamples.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4918EB1921C739E600EDB763 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4918EB1B21C739E600EDB763 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				4918EB3021C739E800EDB763 /* Info.plist */,
+				4903260722C4724D00AC5E24 /* RelayTests.swift */,
 				4918EB3921C73A9000EDB763 /* SingleTests.swift */,
 				4918EB3C21C76A3D00EDB763 /* ObservableTests.swift */,
 				4918EB3E21C76A8200EDB763 /* SingleError.swift */,
@@ -244,8 +247,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-RxExamplesTests/Pods-RxExamplesTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-RxExamplesTests/Pods-RxExamplesTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
 				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
@@ -253,7 +255,6 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
@@ -261,7 +262,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RxExamplesTests/Pods-RxExamplesTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RxExamplesTests/Pods-RxExamplesTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6E02E8EE2A8647BC7E3A9F81 /* [CP] Check Pods Manifest.lock */ = {
@@ -288,20 +289,20 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-RxExamples/Pods-RxExamples-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-RxExamples/Pods-RxExamples-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RxExamples/Pods-RxExamples-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RxExamples/Pods-RxExamples-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BFB053B6F9AE7648288DDAC5 /* [CP] Check Pods Manifest.lock */ = {
@@ -340,6 +341,7 @@
 			files = (
 				4918EB4121C7A24600EDB763 /* TestableObservable.swift in Sources */,
 				4918EB3F21C76A8200EDB763 /* SingleError.swift in Sources */,
+				4903260822C4724D00AC5E24 /* RelayTests.swift in Sources */,
 				4918EB3D21C76A3D00EDB763 /* ObservableTests.swift in Sources */,
 				4918EB3A21C73A9000EDB763 /* SingleTests.swift in Sources */,
 			);
